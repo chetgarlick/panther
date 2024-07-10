@@ -28,7 +28,7 @@ void Game::Update(){
 
     sf::Event event;
     while(window.pollEvent(event)){
-        if(event.type == sf::Event::Closed){ window.close(); }
+        if(event.type == sf::Event::Closed){ Quit(); }
     }
     mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
     
@@ -66,3 +66,6 @@ void Game::Launch(){
     Run();
 }
 
+void Game::Quit(){
+    window.close();
+}

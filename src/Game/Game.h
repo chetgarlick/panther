@@ -4,6 +4,7 @@
 #include "../Framerate/Framerate.h"
 #include "../Player/Player.h"
 #include "../MainMenu/MainMenu.h"
+#include "../Button/Button.h"
 
 class Game{
 
@@ -29,5 +30,6 @@ class Game{
         void Draw();
         void Run();
         void Launch();
+        void Quit();
 
 };
