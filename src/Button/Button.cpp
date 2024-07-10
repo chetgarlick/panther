@@ -39,9 +39,18 @@ void Button::Draw(sf::RenderWindow& window){
 void Button::Fire(){
     //TODO: understand passing lambdas / functions between classes, 
     std::cout<< "FIRING BUTTON OF TEXT::" << rawText << std::endl;
+    if(btnFunc!=NULL){
+        btnFunc();
+    } else {
+        std::cout << "null btnfunc!" << std::endl;
+    }
     if(rawText=="Quit"){
         //TODO: call Game.h quit from here
     }
+}
+
+void Button::SetFire(std::function <void()> newFunc){
+    btnFunc = newFunc;
 }
 
 sf::Vector2f Button::getSize(){
