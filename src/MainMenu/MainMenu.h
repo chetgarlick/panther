@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "../Button/Button.h"
+#include <functional>
 
 class MainMenu{
     private:
@@ -17,7 +18,7 @@ class MainMenu{
         MainMenu();
         ~MainMenu();
 
-        void Init();
+        void Init(std::function <void()> quitFunc);
         void Load();
         void Update();
         void HandlePlayerInput();

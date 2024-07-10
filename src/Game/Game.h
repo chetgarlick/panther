@@ -6,6 +6,8 @@
 #include "../MainMenu/MainMenu.h"
 #include "../Button/Button.h"
 
+#include <functional>
+
 class Game{
 
     private:
@@ -19,6 +21,7 @@ class Game{
         double delta;
         sf::Vector2f mousePos;
         MainMenu mainMenu;
+        std::function <void()> quitFunc;
 
     public:
         Game();

@@ -2,7 +2,7 @@
 #include <iostream>
 
 Game::Game() : isRunning(false), isMainMenu(true), delta(0){
-
+    quitFunc = [this](){Quit();};
 }
 
 Game::~Game(){
@@ -11,7 +11,7 @@ Game::~Game(){
 
 void Game::Init(){
     window.create(sf::VideoMode(1920,1080), "PANTHER", sf::Style::Default);
-    mainMenu.Init();
+    mainMenu.Init(quitFunc);
     player.Init();
     framerate.Init();
 }

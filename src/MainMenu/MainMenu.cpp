@@ -1,5 +1,6 @@
 #include "MainMenu.h"
 #include <iostream>
+#include <functional>
 
 MainMenu::MainMenu() : selected(0), initialTextVectLength(3), LRKeyHeld(false), enterHeld(false){
     sf::Vector2f initSize(100, 50);
@@ -16,9 +17,10 @@ MainMenu::~MainMenu(){
 
 }
 
-void MainMenu::Init(){
+void MainMenu::Init(std::function <void()> quitFunc){
     for(int i=0; i<initialTextVectLength; i++){
         btnVect[i].Init();
+        if(btnVect[i].getRawText()=="Quit"){ btnVect[i].SetFire(quitFunc); }
     }
 }
 
@@ -66,6 +68,7 @@ void MainMenu::HandlePlayerInput(){
         if(!enterHeld){
             std::cout <<"ENTER FIRED! SELECTED VALUE AND TEXT: " << selected << btnVect[selected].getRawText() << std::endl;
             enterHeld = true;
+            btnVect[selected].Fire();
         }
     } else{
         LRKeyHeld = false;
