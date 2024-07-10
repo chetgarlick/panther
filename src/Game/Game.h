@@ -3,12 +3,13 @@
 
 #include "../Framerate/Framerate.h"
 #include "../Player/Player.h"
+#include "../MainMenu/MainMenu.h"
 
 class Game{
 
     private:
         bool isRunning;
-        bool isMenu;
+        bool isMainMenu;
         Player player;
         Framerate framerate;
         sf::RenderWindow window;
@@ -16,6 +17,7 @@ class Game{
         sf::Time deltaTimer;
         double delta;
         sf::Vector2f mousePos;
+        MainMenu mainMenu;
 
     public:
         Game();

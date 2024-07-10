@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
-Game::Game() : isRunning(false), isMenu(false), delta(0){
+Game::Game() : isRunning(false), isMainMenu(true), delta(0){
 
 }
 
@@ -11,11 +11,13 @@ Game::~Game(){
 
 void Game::Init(){
     window.create(sf::VideoMode(1920,1080), "PANTHER", sf::Style::Default);
+    mainMenu.Init();
     player.Init();
     framerate.Init();
 }
 
 void Game::Load(){
+    mainMenu.Load();
     player.Load();
     framerate.Load();
 }
@@ -29,14 +31,25 @@ void Game::Update(){
         if(event.type == sf::Event::Closed){ window.close(); }
     }
     mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
-    framerate.Update(delta);
-    player.Update(delta, mousePos);
+    
+    if(isMainMenu){
+        mainMenu.Update();
+    } else if(isRunning){
+        framerate.Update(delta);
+        player.Update(delta, mousePos);
+    }
 }
 
 void Game::Draw(){
     window.clear(sf::Color::Black);
-    framerate.Draw(window);
-    player.Draw(window);
+    
+    if(isMainMenu){
+        mainMenu.Draw(window);
+    }
+    if(isRunning){
+        player.Draw(window);
+        framerate.Draw(window);
+    }
     window.display();
 }
 
