@@ -3,6 +3,7 @@
 
 Game::Game() : isRunning(false), isMainMenu(true), delta(0){
     quitFunc = [this](){Quit();};
+    startGameFunc = [this](){this->isRunning = true; this->isMainMenu = false;};
 }
 
 Game::~Game(){
@@ -11,7 +12,7 @@ Game::~Game(){
 
 void Game::Init(){
     window.create(sf::VideoMode(1920,1080), "PANTHER", sf::Style::Default);
-    mainMenu.Init(quitFunc);
+    mainMenu.Init(quitFunc, startGameFunc);
     player.Init();
     framerate.Init();
 }

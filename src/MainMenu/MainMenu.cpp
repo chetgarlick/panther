@@ -17,10 +17,11 @@ MainMenu::~MainMenu(){
 
 }
 
-void MainMenu::Init(std::function <void()> quitFunc){
+void MainMenu::Init(std::function <void()> quitFunc, std::function <void()> startGameFunc){
     for(int i=0; i<initialTextVectLength; i++){
         btnVect[i].Init();
         if(btnVect[i].getRawText()=="Quit"){ btnVect[i].SetFire(quitFunc); }
+        if(btnVect[i].getRawText()=="Play"){ btnVect[i].SetFire(startGameFunc);}
     }
 }
 

@@ -18,7 +18,7 @@ class MainMenu{
         MainMenu();
         ~MainMenu();
 
-        void Init(std::function <void()> quitFunc);
+        void Init(std::function <void()> quitFunc, std::function <void()> startGameFunc);
         void Load();
         void Update();
         void HandlePlayerInput();

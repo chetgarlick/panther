@@ -22,6 +22,7 @@ class Game{
         sf::Vector2f mousePos;
         MainMenu mainMenu;
         std::function <void()> quitFunc;
+        std::function <void()> startGameFunc;
 
     public:
         Game();
