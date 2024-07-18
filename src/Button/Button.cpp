@@ -13,13 +13,16 @@ Button::~Button(){
 void Button::Init(){
     //TODO: understand scale and its relationship to size
     //TODO: center text on button rect btnRect
+    //TODO: or maybe we need to calculate box size based on text size?
+    // that makes more sense
     btnText.setString(rawText);
     btnRect.setSize(size);
-    btnRect.setPosition(position);
+    btnRect.setPosition(position.x - 10, position.y - 10);
     btnRect.setFillColor(sf::Color::White);
     btnText.setFillColor(sf::Color::Red);
     btnText.setPosition(position);  
     btnText.setScale(0.75,0.75);
+    std::cout<< btnText.getCharacterSize() << " " << btnText.getPosition().y << std::endl;
 }
 void Button::Load(){
     if(font.loadFromFile("../Assets/Fonts/arial.ttf")){
@@ -44,9 +47,6 @@ void Button::Fire(){
     } else {
         std::cout << "null btnfunc!" << std::endl;
     }
-    if(rawText=="Quit"){
-        //TODO: call Game.h quit from here
-    }
 }
 
 void Button::SetFire(std::function <void()> newFunc){
@@ -69,7 +69,8 @@ void Button::setSize(sf::Vector2f newSize){
 
 void Button::setPosition(sf::Vector2f newPos){
     position = newPos;
-    btnRect.setPosition(newPos);
+    btnText.setPosition(newPos);
+    btnRect.setPosition(newPos.x - 10, newPos.y - 10);
 }
 
 void Button::setSelected(bool newSelected){

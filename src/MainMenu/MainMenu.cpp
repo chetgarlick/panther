@@ -6,7 +6,7 @@ MainMenu::MainMenu() : selected(0), initialTextVectLength(3), LRKeyHeld(false), 
     sf::Vector2f initSize(100, 50);
     std::string btnTextArr[3] = {"Play", "Quit", "Other"};
     for(int i=0; i<initialTextVectLength; i++){
-        sf::Vector2f initPos(0+75*i, 0+75*i);
+        sf::Vector2f initPos(10+75*i, 10+75*i);
         std::string newString = btnTextArr[i];
         Button tmpBtn(newString, initSize, initPos);
         btnVect.push_back(tmpBtn);
