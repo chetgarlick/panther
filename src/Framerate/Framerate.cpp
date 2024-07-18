@@ -16,7 +16,6 @@ void Framerate::Init(){
 void Framerate::Load(){
     if(font.loadFromFile("../Assets/Fonts/arial.ttf")){
         framerateText.setFont(font);
-        std::cout << "Arial.ttf font loaded successfully" << std::endl;
     } else {
         std::cout << "failed to load font file" << std:: endl;
     }

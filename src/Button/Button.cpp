@@ -27,11 +27,16 @@ void Button::Init(){
 void Button::Load(){
     if(font.loadFromFile("../Assets/Fonts/arial.ttf")){
         btnText.setFont(font);
-        std::cout << "Arial.ttf font loaded successfully" << std::endl;
     } else {
         std::cout << "failed to load font file" << std:: endl;
     }
 }
+
+void Button::Load(sf::Font& newFont){
+    btnText.setFont(newFont);
+}
+
+
 void Button::Update(){
     
 }

@@ -20,6 +20,7 @@ class Button{
 
         void Init();
         void Load();
+        void Load(sf::Font& newFont);
         void Update();
         void Draw(sf::RenderWindow& window);
         void Fire();
