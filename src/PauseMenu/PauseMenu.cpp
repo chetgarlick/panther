@@ -43,7 +43,6 @@ void PauseMenu::Update(){
 void PauseMenu::HandlePlayerInput(){
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
         if(!LRKeyHeld){
-            std::cout<<"D?!"<<std::endl;
             btnVect[selected].setSelected(false);
             selected += 1;
             if(selected >= btnVect.size()) selected = btnVect.size() - 1;

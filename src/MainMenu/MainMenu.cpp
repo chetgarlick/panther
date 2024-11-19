@@ -49,20 +49,16 @@ void MainMenu::HandlePlayerInput(){
             btnVect[selected].setSelected(false);
             selected += 1;
             if(selected >= btnVect.size()) selected = btnVect.size() - 1;
-            //btnVect[selected].setSelected(true);
-            std::cout <<"D FIRED! SELECTED VALUE AND TEXT: " << selected << btnVect[selected].getRawText() << std::endl;
             LRKeyHeld = true;
         }
     } else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
         if(!LRKeyHeld){
             selected -= 1;
             if(selected < 0) selected = 0;
-            std::cout <<"A FIRED! SELECTED VALUE AND TEXT: " << selected << btnVect[selected].getRawText() << std::endl;
             LRKeyHeld = true;
         }
     } else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)){
         if(!enterHeld){
-            std::cout <<"ENTER FIRED! SELECTED VALUE AND TEXT: " << selected << btnVect[selected].getRawText() << std::endl;
             enterHeld = true;
             btnVect[selected].Fire();
         }

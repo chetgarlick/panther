@@ -21,7 +21,6 @@ void Player::Init(std::function <void()> pauseFunc){
 
 void Player::Load(){
     if (texture.loadFromFile("../Assets/Images/box.png")){
-		std::cout << "Player texture loaded!" << std::endl;
 		sprite.setTexture(texture);
 
 		int XIndex = 0;
@@ -63,7 +62,6 @@ void Player::HandlePlayerInput(double deltaTime){
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		sprite.setPosition(position + sf::Vector2f(0, 1) * moveSpeed * (float)deltaTime);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
-		std::cout << "escapay" << std::endl;
 		if(playerPause!=NULL){ playerPause(); } else { std::cout << "null player pause!" << std::endl; }
 	}
 

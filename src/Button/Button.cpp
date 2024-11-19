@@ -22,7 +22,6 @@ void Button::Init(){
     btnText.setFillColor(sf::Color::Red);
     btnText.setPosition(position);  
     btnText.setScale(0.75,0.75);
-    std::cout<< btnText.getCharacterSize() << " " << btnText.getPosition().y << std::endl;
 }
 void Button::Load(){
     if(font.loadFromFile("../Assets/Fonts/arial.ttf")){
@@ -46,7 +45,6 @@ void Button::Draw(sf::RenderWindow& window){
 }
 void Button::Fire(){
     //TODO: understand passing lambdas / functions between classes, 
-    std::cout<< "FIRING BUTTON OF TEXT::" << rawText << std::endl;
     if(btnFunc!=NULL){
         btnFunc();
     } else {

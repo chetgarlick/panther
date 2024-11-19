@@ -31,7 +31,6 @@ void Framerate::Update(double delta){
 }
 
 void Framerate::Draw(sf::RenderWindow& window){
-    //std::cout << "drawing:: " << (std::string)framerateText.getString() << std::endl;
     window.draw(framerateText);
 }
 
