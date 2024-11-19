@@ -9,12 +9,13 @@ Player::~Player(){
 
 }
 
-void Player::Init(){
+void Player::Init(std::function <void()> pauseFunc){
     bound.setFillColor(sf::Color::Red); //this will be transparent when we get a sprite and texture
     bound.setOutlineColor(sf::Color::Red);
     bound.setOutlineThickness(1);
     //bound.setPosition(sf::Vector2f(0,0));
     size = sf::Vector2i(64,64);
+	playerPause = pauseFunc;
     //bound.setSize(size);
 }
 
@@ -61,6 +62,11 @@ void Player::HandlePlayerInput(double deltaTime){
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		sprite.setPosition(position + sf::Vector2f(0, 1) * moveSpeed * (float)deltaTime);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+		std::cout << "escapay" << std::endl;
+		if(playerPause!=NULL){ playerPause(); } else { std::cout << "null player pause!" << std::endl; }
+	}
+
 }
 
 void Player::Draw(sf::RenderWindow& window){

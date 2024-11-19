@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <functional>
 
 class Player{
 
@@ -12,6 +13,8 @@ class Player{
         sf::RectangleShape bound;
         sf::Vector2i size;
 
+        std::function <void()> playerPause;
+
     public:
         //sprite for future
         sf::Sprite sprite;
@@ -19,7 +22,7 @@ class Player{
         Player();
         ~Player();
 
-        void Init();
+        void Init(std::function <void()> pauseFunc);
         void Load();
         void Update(double deltaTime, sf::Vector2f& mousePos);
         void Draw(sf::RenderWindow& window);
