@@ -26,14 +26,9 @@ void MainMenu::Init(std::function <void()> quitFunc, std::function <void()> star
 }
 
 void MainMenu::Load(){
-    //maybe should set font here so we only have to load it once? TODO explore later
-    // for(int i=0; i<btnVect.size();i++){
-    //     textVect[i].setFont(font);
-    //     if(font.loadFromFile("../Assets/Fonts/arial.ttf")){ std::cout << "Arial.ttf font loaded successfully into textVect at i="<< i << std::endl;
-    //     } else { std::cout << "failed to load font file" << std:: endl; }
-    // }
+    font.loadFromFile("../Assets/Fonts/arial.ttf");
     for(int i=0; i<initialTextVectLength; i++){
-        btnVect[i].Load();
+        btnVect[i].Load(font);
     }
 }
 
