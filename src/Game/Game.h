@@ -5,13 +5,14 @@
 #include "../Player/Player.h"
 #include "../MainMenu/MainMenu.h"
 #include "../Button/Button.h"
-
+#include "../PauseMenu/PauseMenu.h"
 #include <functional>
 
 class Game{
 
     private:
         bool isRunning;
+        bool isPauseMenu;
         bool isMainMenu;
         Player player;
         Framerate framerate;
@@ -21,9 +22,10 @@ class Game{
         double delta;
         sf::Vector2f mousePos;
         MainMenu mainMenu;
+        PauseMenu pauseMenu;
         std::function <void()> quitFunc;
         std::function <void()> startGameFunc;
-
+        std::function <void()> pauseFunc;
     public:
         Game();
         ~Game();

@@ -4,6 +4,7 @@
 Game::Game() : isRunning(false), isMainMenu(true), delta(0){
     quitFunc = [this](){Quit();};
     startGameFunc = [this](){this->isRunning = true; this->isMainMenu = false;};
+    pauseFunc = [this](){this->isRunning = !isRunning; this->isPauseMenu = !isPauseMenu;};
 }
 
 Game::~Game(){
@@ -12,13 +13,16 @@ Game::~Game(){
 
 void Game::Init(){
     window.create(sf::VideoMode(1920,1080), "PANTHER", sf::Style::Default);
+    isPauseMenu = false;
     mainMenu.Init(quitFunc, startGameFunc);
-    player.Init();
+    pauseMenu.Init(quitFunc, pauseFunc);
+    player.Init(pauseFunc);
     framerate.Init();
 }
 
 void Game::Load(){
     mainMenu.Load();
+    pauseMenu.Load();
     player.Load();
     framerate.Load();
 }
@@ -35,6 +39,8 @@ void Game::Update(){
     
     if(isMainMenu){
         mainMenu.Update();
+    } else if(isPauseMenu){
+        pauseMenu.Update();
     } else if(isRunning){
         framerate.Update(delta);
         player.Update(delta, mousePos);
@@ -46,6 +52,9 @@ void Game::Draw(){
     
     if(isMainMenu){
         mainMenu.Draw(window);
+    }
+    if(isPauseMenu){
+        pauseMenu.Draw(window);
     }
     if(isRunning){
         player.Draw(window);
