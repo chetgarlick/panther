@@ -20,7 +20,7 @@ class PauseMenu{
         PauseMenu();
         ~PauseMenu();
 
-        void Init(std::function <void()> pauseFunc);
+        void Init(std::function <void()> pauseFunc, std::function <void()> quitFunc);
         void Load();
         void Update();
         void HandlePlayerInput();
